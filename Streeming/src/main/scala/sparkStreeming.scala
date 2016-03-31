@@ -23,31 +23,10 @@ object sparkStreeming {
     val data3 = data2.map{ case(k,v) => (k, 1L) }
     val data4 = data3.reduceByKey( _+_ )
 
-    //val data5 = data3.reduceByKeyAndWindow( (value:String, value1:String) => value + value1 , Minutes(10), Seconds(10), 1 )
-
     data4.print()
-
-    //Rgular Streeming
-    /*val lines = ssc.socketTextStream("quickstart", 12345)
-
-    val logFile = "output.txt" // Should be some file on your system
-    val sc = new SparkContext(conf)
-
-    val numAs = lines.filter(line => line.contains("a")).count()
-    val numBs = lines.filter(line => line.contains("b")).count()
-
-    lines.print()
-    numAs print()
-    numBs.print()
-    */
 
     ssc.start()             // Start the computation
     ssc.awaitTermination()
-
-    //Normal Spark
-    //val lines = sc.textFile(logFile, 2)
-    //println("Lines with a: %s, Lines with b: %s".format(numAs, numBs))
-    //sc.stop()
 
   }
 }
