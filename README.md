@@ -17,84 +17,84 @@ That translates to: Run *command 1* on terminal 1, then run *command 2* in termi
 1) Data Generation
 
   T1)
-    nc -lk 12345
+    nc -lk 12345  
   T2) 
-    cd ~/ExpertSummit/generator
-    ./dataGen.py
+    cd ~/ExpertSummit/generator  
+    ./dataGen.py  
 
   This will run the data generator  in T1 and display the results in T2.
 
 2) Simple flume Channel
 
   T1) 
-    cd ~/ExpertSummit/flume
-    flume-ng agent -n agent1 -f simple.conf --name a1
+    cd ~/ExpertSummit/flume  
+    flume-ng agent -n agent1 -f simple.conf --name a1  
   T2) 
-    cd ~/ExpertSummit/generator
-    ./dataGen.py
+    cd ~/ExpertSummit/generator  
+    ./dataGen.py  
 
 3) Complex flume Example
 
   T1)
-    cd ~/ExpertSummit/flume
-    flume-ng agent -n agent1 -f complex.conf --name a1
+    cd ~/ExpertSummit/flume  
+    flume-ng agent -n agent1 -f complex.conf --name a1  
   T2)
-    cd ~/ExpertSummit/generator
-    ./dataGen.py
+    cd ~/ExpertSummit/generator  
+    ./dataGen.py  
 
 4) Simple Kafka Commands
 
   T1) 
-    kafka-topics --list --zookeeper quickstart:2181/kafka
-    kafka-topics --zookeeper quickstart:2181/kafka --create --topic myTopic --partitions 1 --replication-factor 1
-    kafka-topics --list --zookeeper quickstart:2181/kafka
+    kafka-topics --list --zookeeper quickstart:2181/kafka  
+    kafka-topics --zookeeper quickstart:2181/kafka --create --topic myTopic --partitions 1 --replication-factor 1  
+    kafka-topics --list --zookeeper quickstart:2181/kafka  
 
 5) Kafka consumer producer example
 
   T1) 
-    kafka-console-producer --topic myTopic --broker-list quickstart:9092
-    <type arbitrary info in terminal>
+    kafka-console-producer --topic myTopic --broker-list quickstart:9092  
+?    type arbitrary info in terminal  
   T2) 
-    kafka-console-consumer --zookeeper quickstart:2181/kafka --topic myTopic
+    kafka-console-consumer --zookeeper quickstart:2181/kafka --topic myTopic  
 
 6) Kafka cleanup
 
   T1) 
-    kafka-console-consumer --from-beginning --zookeeper quickstart:2181/kafka --topic myTopic
-    kafka-topics --zookeeper quickstart:2181/kafka --delete --topic myTopic 
+    kafka-console-consumer --from-beginning --zookeeper quickstart:2181/kafka --topic myTopic  
+    kafka-topics --zookeeper quickstart:2181/kafka --delete --topic myTopic  
 
 
 7) Flume and Kafka Example
 
   T1)
-    cd ~/ExpertSummit/flume 
-    flume-ng agent -n agent1 -f kafka.conf --name a1
+    cd ~/ExpertSummit/flume  
+    flume-ng agent -n agent1 -f kafka.conf --name a1  
   T2) 
-    cd ~/ExpertSummit/generator
-    ./dataGen.py
+    cd ~/ExpertSummit/generator  
+    ./dataGen.py  
   T3) 
-    kafka-console-consumer --from-beginning --zookeeper quickstart:2181/kafka --topic mychannel
+    kafka-console-consumer --from-beginning --zookeeper quickstart:2181/kafka --topic mychannel  
 
 8) Spark Example
 
   T4) 
-    cd ~/ExpertSummit/Streeming 
-    mvn clean package
-    spark-submit --master yarn-client --class simpleSpark sparkStreeming-1.0.jar
+    cd ~/ExpertSummit/Streeming  
+    mvn clean package  
+    spark-submit --master yarn-client --class simpleSpark sparkStreeming-1.0.jar  
 
 9) Spark Streaming Example
  
   T1)
-    cd ~/ExpertSummit/flume 
-    flume-ng agent -n agent1 -f kafka.conf --name a1
+    cd ~/ExpertSummit/flume  
+    flume-ng agent -n agent1 -f kafka.conf --name a1  
   T3) 
-    kafka-console-consumer --from-beginning --zookeeper quickstart:2181/kafka --topic mychannel
+    kafka-console-consumer --from-beginning --zookeeper quickstart:2181/kafka --topic mychannel  
   T4)
-    cd ~/ExpertSummit/Streeming
-    spark-submit --master yarn-client --class sparkStreeming sparkStreeming-1.0.jar"
+    cd ~/ExpertSummit/Streeming  
+    spark-submit --master yarn-client --class sparkStreeming sparkStreeming-1.0.jar"  
   T2) 
-    cd ~/ExpertSummit/generator
-    ./dataGen.py
+    cd ~/ExpertSummit/generator  
+    ./dataGen.py  
 
 
 When running the final example, if you would like to reduce the clutter on the terminal window, you can change the spark output to only present warning and not informational data.
