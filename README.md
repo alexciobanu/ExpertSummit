@@ -53,7 +53,7 @@ That translates to: Run *command 1* on terminal 1, then run *command 2* in termi
 
   T1)  
     kafka-console-producer --topic myTopic --broker-list quickstart:9092  
-?    type arbitrary info in terminal  
+>    type arbitrary info in terminal  
   T2)  
     kafka-console-consumer --zookeeper quickstart:2181/kafka --topic myTopic  
 
@@ -72,7 +72,7 @@ That translates to: Run *command 1* on terminal 1, then run *command 2* in termi
   T2)  
     cd ~/ExpertSummit/generator  
     ./dataGen.py  
-  T3) 
+  T3)   
     kafka-console-consumer --from-beginning --zookeeper quickstart:2181/kafka --topic mychannel  
 
 8) Spark Example
