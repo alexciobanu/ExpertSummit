@@ -7,31 +7,32 @@ There were several examples presented during the session and here you will find 
 Most of the examples below will use the notation T1, T2, T3. This refers to different terminal windows, and the command to run in each. For example, if you see
 
 T1
->    *command 1*
+    *command 1*
 
 T2
->    *command 2*
+    *command 2*
 
 That translates to: Run *command 1* on terminal 1, then run *command 2* in terminal 2. These should be distinct bash terminal windows open on the Cloudera quickstart VM downloadable here. 
 
 1. Data Generation
 
 T1)
->    nc -lk 12345
+    nc -lk 12345
 T2) 
->    cd ~/ExpertSummit/generator
->    ./dataGen.py
+    cd ~/ExpertSummit/generator
+    ./dataGen.py
+
 
 This will run the data generator  in T1 and display the results in T2.
 
 2. Simple flume Channel
 
 T1) 
->    cd ~/ExpertSummit/flume
->    flume-ng agent -n agent1 -f simple.conf --name a1
+    cd ~/ExpertSummit/flume
+    flume-ng agent -n agent1 -f simple.conf --name a1
 T2) 
->    cd ~/ExpertSummit/generator
->    ./dataGen.py
+    cd ~/ExpertSummit/generator
+    ./dataGen.py
 
 3. Complex flume Example
 
